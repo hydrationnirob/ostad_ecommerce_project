@@ -13,7 +13,31 @@ class CraftBay extends StatelessWidget {
       theme: ThemeData(
         primarySwatch:
         MaterialColor(AppColors.primaryColor.value, AppColors().color),
+
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5),
+          ),
+            padding: const EdgeInsets.symmetric(vertical: 12),
+            textStyle: const TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        inputDecorationTheme: InputDecorationTheme(
+          contentPadding: const EdgeInsets.symmetric(horizontal: 20),
+
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          disabledBorder: const OutlineInputBorder(
+
+          ),
+        )
       ),
+
     );
   }
 }
