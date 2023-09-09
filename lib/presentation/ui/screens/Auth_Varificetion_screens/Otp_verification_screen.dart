@@ -18,7 +18,7 @@ class OTPVerificationScreen extends StatefulWidget {
 
 class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
 
-  int _start = 120;
+  int _start = 10;
 
  void _startCondown(){
    Timer.periodic(const Duration(seconds: 1), (timer) {
@@ -135,7 +135,17 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                   ),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      if(_start == 0)
+                        {
+                          _start = 10;
+                          _startCondown();
+                        }
+
+                    });
+
+                  },
                   style: TextButton.styleFrom(foregroundColor: Colors.grey),
                   child: const Text('Resend'),
 
