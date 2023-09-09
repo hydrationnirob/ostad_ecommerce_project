@@ -1,4 +1,6 @@
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -15,6 +17,28 @@ class OTPVerificationScreen extends StatefulWidget {
 }
 
 class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
+
+  int _start = 120;
+
+ void _startCondown(){
+   Timer.periodic(const Duration(seconds: 1), (timer) {
+     setState(() {
+        if(_start == 0){
+          timer.cancel();
+        }else{
+          _start--;
+        }
+     });
+
+   });
+
+ }
+  @override
+  void initState() {
+    _startCondown();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,12 +120,12 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                   height: 24,
                 ),
                 RichText(
-                  text: const TextSpan(
+                  text:  TextSpan(
                     style: TextStyle(color: Colors.grey),
                     children: [
                       TextSpan(text: 'This code will expire in '),
                       TextSpan(
-                        text: '120s',
+                        text: '${_start}s',
                         style: TextStyle(
                           color: AppColors.primaryColor,
                           fontWeight: FontWeight.bold,
@@ -114,6 +138,8 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                   onPressed: () {},
                   style: TextButton.styleFrom(foregroundColor: Colors.grey),
                   child: const Text('Resend'),
+
+
                 ),
               ],
             ),
