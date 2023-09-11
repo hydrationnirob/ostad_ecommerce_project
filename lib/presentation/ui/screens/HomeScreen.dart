@@ -1,10 +1,16 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ostad_ecommerce_project/application/data/Api_CallBack/Api_Links.dart';
+import 'package:ostad_ecommerce_project/application/data/Api_CallBack/CallApi.dart';
+import 'package:ostad_ecommerce_project/application/data/Api_CallBack/CategoryList_CallBack.dart';
 import 'package:ostad_ecommerce_project/presentation/ui/Widgets/Home/home_slider.dart';
 import 'package:ostad_ecommerce_project/presentation/ui/Widgets/Home/section_header.dart';
 import 'package:ostad_ecommerce_project/presentation/ui/Widgets/category_card.dart';
 import 'package:ostad_ecommerce_project/presentation/ui/Widgets/circular_icon_button.dart';
 import 'package:ostad_ecommerce_project/presentation/ui/utility/image_assets_location.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -13,8 +19,21 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
+
 class _HomeScreenState extends State<HomeScreen> {
+
+  List<CategoryList> categoryDataList = [];
+  Data data = Data();
+
+
+
+
   @override
+  void initState() {
+    CallApi.getCategoryList();
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
 
@@ -84,7 +103,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     itemCount: 10,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
-                      return const CategoryCard();
+                      print(data.categoryName);
+                      return  CategoryCard(categoryName: data.categoryName.toString());
+
                     }),
               ),
               const SizedBox(
@@ -100,4 +121,8 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
+
+
 }
+

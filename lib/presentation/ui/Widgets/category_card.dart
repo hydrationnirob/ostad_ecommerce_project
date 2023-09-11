@@ -1,11 +1,13 @@
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:ostad_ecommerce_project/presentation/ui/utility/app_colors.dart';
 
 class CategoryCard extends StatelessWidget {
-  const CategoryCard({
-    super.key,
-  });
+
+  final String categoryName;
+
+  const CategoryCard({Key? key, required this.categoryName}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +30,9 @@ class CategoryCard extends StatelessWidget {
           const SizedBox(
             height: 8,
           ),
-          const Text(
-            'Electronics',
-            style: TextStyle(
+           Text(
+            categoryName,
+            style: const TextStyle(
                 fontSize: 15,
                 color: AppColors.primaryColor,
                 letterSpacing: 0.4),
