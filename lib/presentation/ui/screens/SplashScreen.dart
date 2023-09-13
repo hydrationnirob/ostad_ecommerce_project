@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:ostad_ecommerce_project/presentation/ui/screens/Auth_Varificetion_screens/email_verifecation_screen.dart';
 import 'package:ostad_ecommerce_project/presentation/ui/utility/image_assets_location.dart';
-
-import 'HomeScreen.dart';
+import 'MainBottomNavScreen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -22,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void goToNextScreen() {
     Future.delayed(const Duration(seconds: 2)).then((value) {
-      Get.offAll( HomeScreen());
+      Get.offAll( MainBottomNavScreen());
     });
   }
 
