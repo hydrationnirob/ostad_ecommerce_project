@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ostad_ecommerce_project/application/state_holder/StateHolderBinder.dart';
 import 'package:ostad_ecommerce_project/presentation/ui/screens/SplashScreen.dart';
 import 'package:ostad_ecommerce_project/presentation/ui/utility/app_colors.dart';
 
@@ -10,6 +11,7 @@ class CraftBay extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       home: const SplashScreen(),
+      initialBinding: StateHolderBinder(),
       theme: ThemeData(
         primarySwatch:
         MaterialColor(AppColors.primaryColor.value, AppColors().color),
