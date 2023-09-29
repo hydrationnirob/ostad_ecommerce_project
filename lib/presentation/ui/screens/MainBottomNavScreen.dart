@@ -6,6 +6,7 @@ import 'package:ostad_ecommerce_project/presentation/ui/screens/CategoryListScre
 import 'package:ostad_ecommerce_project/presentation/ui/screens/WishListScreen.dart';
 import 'package:ostad_ecommerce_project/presentation/ui/utility/app_colors.dart';
 
+import 'CartScreen.dart';
 import 'HomeScreen.dart';
 
 class MainBottomNavScreen extends StatefulWidget {
@@ -19,7 +20,7 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
   final List<Widget> _screens = [
     const HomeScreen(),
     const CategoryListScreen(),
-    const HomeScreen(),
+     const CartScreen(),
     const WishListScreen(),
   ];
 
