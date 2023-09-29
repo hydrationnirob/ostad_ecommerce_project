@@ -5,6 +5,7 @@ import 'package:get/get_state_manager/src/simple/get_state.dart';
 import 'package:ostad_ecommerce_project/application/state_holder/MainBottomNavController.dart';
 import 'package:ostad_ecommerce_project/presentation/State_holder/CategoryController.dart';
 import 'package:ostad_ecommerce_project/presentation/State_holder/HomeSlidersController.dart';
+import 'package:ostad_ecommerce_project/presentation/State_holder/ProductController.dart';
 import 'package:ostad_ecommerce_project/presentation/ui/screens/CategoryListScreen.dart';
 import 'package:ostad_ecommerce_project/presentation/ui/screens/WishListScreen.dart';
 import 'package:ostad_ecommerce_project/presentation/ui/utility/app_colors.dart';
@@ -32,6 +33,7 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Get.find<HomeSlidersController>().getHomeSliders();
       Get.find<CategoryController>().getCategories();
+      Get.find<ProductController>().getPopularProducts();
     });
     super.initState();
   }

@@ -4,6 +4,7 @@ import 'package:ostad_ecommerce_project/presentation/State_holder/CategoryContro
 import 'package:ostad_ecommerce_project/presentation/State_holder/EmailVerificationController.dart';
 import 'package:ostad_ecommerce_project/presentation/State_holder/HomeSlidersController.dart';
 import 'package:ostad_ecommerce_project/presentation/State_holder/OtpVerificationController.dart';
+import 'package:ostad_ecommerce_project/presentation/State_holder/ProductController.dart';
 
 import 'MainBottomNavController.dart';
 
@@ -15,6 +16,7 @@ class StateHolderBinder extends Bindings {
     Get.put(OtpVerificationController());
     Get.put(HomeSlidersController());
     Get.put(CategoryController());
+    Get.put(ProductController());
 
   }
 }
