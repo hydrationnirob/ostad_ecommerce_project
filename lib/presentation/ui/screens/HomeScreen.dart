@@ -1,16 +1,17 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:ostad_ecommerce_project/application/state_holder/MainBottomNavController.dart';
+import 'package:ostad_ecommerce_project/presentation/State_holder/HomeSlidersController.dart';
 import 'package:ostad_ecommerce_project/presentation/ui/Widgets/Home/home_slider.dart';
 import 'package:ostad_ecommerce_project/presentation/ui/Widgets/Home/section_header.dart';
 import 'package:ostad_ecommerce_project/presentation/ui/Widgets/ProductCard.dart';
 import 'package:ostad_ecommerce_project/presentation/ui/Widgets/category_card.dart';
 import 'package:ostad_ecommerce_project/presentation/ui/Widgets/circular_icon_button.dart';
-import 'package:ostad_ecommerce_project/presentation/ui/screens/ProductListScreen.dart';
 import 'package:ostad_ecommerce_project/presentation/ui/utility/image_assets_location.dart';
 
+import 'ProductListScreen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -30,7 +31,6 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             SvgPicture.asset(
               ImageAssets.craftyBayNavLogoSVG,
-              fit: BoxFit.contain,
             ),
             const Spacer(),
             CircularIconButton(
@@ -75,7 +75,21 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(
                 height: 16,
               ),
-              const HomeSlider(),
+              GetBuilder<HomeSlidersController>(
+                  builder: (homeSliderController) {
+                    if (homeSliderController.getHomeSlidersInProgress) {
+                      return const SizedBox(
+                        height: 180.0,
+                        child: Center(
+                          child: CircularProgressIndicator(),
+                        ),
+                      );
+                    }
+                    return HomeSlider(
+                      sliders: homeSliderController.sliderModel.data ?? [],
+                    );
+                  }
+              ),
               SectionHeader(
                 title: 'Categories',
                 onTap: () {
@@ -118,7 +132,9 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               SectionHeader(
                 title: 'Special',
-                onTap: () { Get.to(const ProductListScreen());},
+                onTap: () {
+                  Get.to(const ProductListScreen());
+                },
               ),
               SizedBox(
                 height: 165,
@@ -135,7 +151,9 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               SectionHeader(
                 title: 'New',
-                onTap: () { Get.to(const ProductListScreen());},
+                onTap: () {
+                  Get.to(const ProductListScreen());
+                },
               ),
               SizedBox(
                 height: 165,
