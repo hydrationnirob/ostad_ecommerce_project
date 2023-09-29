@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
 import 'package:ostad_ecommerce_project/application/state_holder/MainBottomNavController.dart';
+import 'package:ostad_ecommerce_project/presentation/ui/screens/CartScreen.dart';
 import 'package:ostad_ecommerce_project/presentation/ui/screens/CategoryListScreen.dart';
 import 'package:ostad_ecommerce_project/presentation/ui/screens/WishListScreen.dart';
 import 'package:ostad_ecommerce_project/presentation/ui/utility/app_colors.dart';
@@ -19,7 +20,7 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
   final List<Widget> _screens = [
     const HomeScreen(),
     const CategoryListScreen(),
-    const HomeScreen(),
+    const CartScreen(),
     const WishListScreen(),
   ];
 

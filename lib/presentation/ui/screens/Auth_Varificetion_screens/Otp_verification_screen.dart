@@ -10,7 +10,7 @@ import 'package:ostad_ecommerce_project/presentation/ui/utility/image_assets_loc
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class OTPVerificationScreen extends StatefulWidget {
-  const OTPVerificationScreen({Key? key}) : super(key: key);
+  const OTPVerificationScreen({Key? key, }) : super(key: key);
 
   @override
   State<OTPVerificationScreen> createState() => _OTPVerificationScreenState();
@@ -123,10 +123,10 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                   text:  TextSpan(
                     style: TextStyle(color: Colors.grey),
                     children: [
-                      TextSpan(text: 'This code will expire in '),
+                      const TextSpan(text: 'This code will expire in '),
                       TextSpan(
                         text: '${_start}s',
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: AppColors.primaryColor,
                           fontWeight: FontWeight.bold,
                         ),
